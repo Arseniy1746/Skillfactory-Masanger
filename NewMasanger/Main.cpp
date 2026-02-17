@@ -2,6 +2,12 @@
 #include <memory>
 using namespace std;
 
+// Глобальные переменные
+const int MAX_USERS = 10;
+const int MAX_MESSAGES = 30;
+
+
+
 // Меню
 void Register_Menu() {
     cout << endl << "        ========================== " << endl;
@@ -33,5 +39,12 @@ void User_Menu() {
 
 int main()
 {
+    setlocale(LC_ALL, "Russian");
+
+    bool Exit = false;
+
+    cout << "Простой консольный чат" << endl;
+    cout << "Вводите числа для выбора пунктов меню и ID" << endl;
+    cout << "Сообщения, имена и пароли — одно слово без пробелов" << endl << endl;
 
 }
