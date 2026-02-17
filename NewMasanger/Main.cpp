@@ -20,7 +20,8 @@ SimpleArray<Message, MAX_MESSAGES> PrivateMessages[MAX_USERS]; //Обьявил�
 int CurrentUserID = -1;
 
 // Меню
-void Register_Menu() {
+void Register_Menu() //Меню для неавторизованных пользователей
+{
     cout << endl << "        ========================== " << endl;
     cout << "        |        Ч А Т           |" << endl;
     cout << "        |                        |" << endl;
@@ -31,7 +32,8 @@ void Register_Menu() {
     cout << "Выберите действие: ";
 }
 
-void User_Menu() {
+void User_Menu() //Меню для авторизованных пользователей
+{
     cout << endl << "        ==========================" << endl;
     cout << "        |   Добро пожаловать!    |" << endl;
     cout << "        | 1. Написать всем       |" << endl;
@@ -61,7 +63,8 @@ int main()
     while (!Exit) {
         try
         {
-            if (CurrentUserID == -1) 
+            //Проверяем, авторизован ли пользователь
+            if (CurrentUserID == -1) //ПОЛЬЗОВАТЕЛЬ НЕ АВТОРИЗОВАН
             {
                 Register_Menu();
 
@@ -99,8 +102,8 @@ int main()
                     cin >> id;
                     cout << "Пароль: ";
                     cin >> pass;
-
-                    if (id < 0 || id >= NumUsers || !Users[id]) 
+                    
+                    if (id < 0 || id >= NumUsers || !Users[id]) //Проверяем корректность ID
                     {
                         cout << "Нет такого ID" << endl;
                         break;
@@ -126,7 +129,7 @@ int main()
                     cout << "Нет такого пункта меню" << endl;
                 }
             }
-            else
+            else//ПОЛЬЗОВАТЕЛЬ АВТОРИЗОВАН
             {
                 User_Menu();
 
@@ -207,8 +210,10 @@ int main()
                     {
                         cout << "Пока нет ни одного пользователя." << endl;
                     }
-                    else {
-                        for (int i = 0; i < NumUsers; ++i) {
+                    else 
+                    {
+                        for (int i = 0; i < NumUsers; ++i) 
+                        {
                             if (Users[i])
                             {
                                 cout << "ID: " << i << " | Имя: " << Users[i]->GetName() << endl;
