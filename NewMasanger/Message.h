@@ -6,7 +6,7 @@ class Message {
 private:
     std::string from_name;
     std::string text;
-    int to_id;          // -1 = всем, иначе ID получателя
+    int to_id;          // -1 = РІСЃРµРј, РёРЅР°С‡Рµ ID РїРѕР»СѓС‡Р°С‚РµР»СЏ
 
 public:
     Message(std::string from, std::string txt, int recipient = -1);
