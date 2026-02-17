@@ -1,12 +1,23 @@
 #include <iostream>
 #include <memory>
+#include <locale.h>
+#include "User.h"
+#include "Message.h"
+#include "SimpleArray.h"
+
 using namespace std;
 
 // Глобальные переменные
 const int MAX_USERS = 10;
 const int MAX_MESSAGES = 30;
 
+std::unique_ptr<User> Users[MAX_USERS]; //Создали масив пользователей
+int NumUsers = 0;
 
+SimpleArray<Message, MAX_MESSAGES> PublicChat; //С помощью шаблона создали публичгый чат
+SimpleArray<Message, MAX_MESSAGES> PrivateMessages[MAX_USERS]; //Создали масив приватных чатов
+
+int CurrentUserID = -1;
 
 // Меню
 void Register_Menu() {
